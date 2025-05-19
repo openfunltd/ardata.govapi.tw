@@ -13,4 +13,7 @@ set_include_path(
 if (file_exists(__DIR__ . '/vendor/autoload.php')) {
     require_once(__DIR__ . '/vendor/autoload.php');
 }
+if (!getenv('WEBROOT')) {
+    putenv('WEBROOT=https://ardata.govapi.tw/');
+}
 MiniEngine::initEnv();

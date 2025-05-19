@@ -246,7 +246,7 @@ class SwaggerController extends MiniEngine_Controller
                 'version' => '1.0.0',
             ],
             'servers' => [
-                ['url' => 'https://govapi.tw/'],
+                ['url' => getenv('WEBROOT')],
             ],
         ];
 
