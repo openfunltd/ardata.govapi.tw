@@ -20,7 +20,7 @@ MiniEngine::dispatch(function($uri){
     //   /examples => ApiController::collectionAction({"type":"example"})
     //   /example/{id} => ApiController::itemAction({"type":"example","id":["id"]})
     //   /example/{id}/foo => ApiController::itemAction({"type":"example","id":["id"]})
-    $param = LYAPI_Helper::getApiType($uri);
+    $param = API_Helper::getApiType($uri);
     if ($param) {
         return $param;
     }
