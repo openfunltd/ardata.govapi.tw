@@ -79,10 +79,29 @@ class API_Type_Account extends API_Type
     public static function queryFields()
     {
         return [
-            '',
+            '帳戶編號',
+            '擬參選人姓名',
+            '選舉年度',
+            '選舉名稱',
+            '縣市別',
         ];
     }
 
+    public static function outputFields()
+    {
+        return [
+            'id',
+            '帳戶編號',
+            '擬參選人姓名',
+            '選舉年度',
+            '選舉名稱',
+            '縣市別',
+            '申報序號',
+            'downloadPdf',
+            'downloadCsv',
+            'downloadZip',
+        ];
+    }
 
     public static function sortFields()
     {

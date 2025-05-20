@@ -66,10 +66,25 @@ class API_Type_Election extends API_Type
     public static function queryFields()
     {
         return [
-            '',
+            '選舉年度',
+            '選舉名稱',
+            '縣市別',
         ];
     }
 
+    public static function outputFields()
+    {
+        return [
+            'id',
+            '選舉年度',
+            '選舉名稱',
+            '縣市別',
+            '申報序號',
+            'downloadPdf',
+            'downloadCsv',
+            'downloadZip',
+        ];
+    }
 
     public static function sortFields()
     {
