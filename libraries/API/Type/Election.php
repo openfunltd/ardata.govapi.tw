@@ -95,6 +95,14 @@ class API_Type_Election extends API_Type
 
     public static function getRelations()
     {
-        return [];
+        return [
+            'records' => [
+                'type' => 'record',
+                'map' => [
+                    'id' => 'election_id',
+                ],
+                'subject' => '選舉相關政治獻金紀錄',
+            ],
+        ];
     }
 }

@@ -112,6 +112,14 @@ class API_Type_Account extends API_Type
 
     public static function getRelations()
     {
-        return [];
+        return [
+            'records' => [
+                'type' => 'record',
+                'map' => [
+                    'id' => 'account_id',
+                ],
+                'subject' => '專戶相關政治獻金紀錄',
+            ],
+        ];
     }
 }

@@ -97,6 +97,14 @@ class API_Type_Party extends API_Type
 
     public static function getRelations()
     {
-        return [];
+        return [
+            'records' => [
+                'type' => 'record',
+                'map' => [
+                    'id' => 'party_id',
+                ],
+                'subject' => '政黨相關政治獻金紀錄',
+            ],
+        ];
     }
 }
