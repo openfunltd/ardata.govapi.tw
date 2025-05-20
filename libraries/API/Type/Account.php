@@ -1,0 +1,98 @@
+<?php
+
+class API_Type_Account extends API_Type
+{
+    public static function getTypeSubject()
+    {
+        return '專戶';
+    }
+
+    public static function getFilterFieldsInfo(): array
+    {
+        return [
+            '擬參選人姓名' => [
+                'es_field' => 'name.keyword',
+                'type' => 'text',
+            ],
+            '帳戶編號' => [
+                'es_field' => 'accountNumber.keyword',
+                'description' => '由於申報次數可以超過一次以上，所以此欄位並非唯一值（unique）',
+                'type' => 'text',
+            ],
+            '選舉名稱' => [
+                'es_field' => 'electionName.keyword',
+                'type' => 'text',
+            ],
+            '選舉年度' => [
+                'es_field' => 'electionYear',
+                'description' => '紀年標準為民國年',
+                'type' => 'integer',
+            ],
+            '申報序號' => [
+                'es_field' => 'yearOrSerial',
+                'description' => '首次為 1, 第一次賸餘為 2，接下來之後第 n 次為 n+1',
+                'type' => 'integer',
+            ],
+            '縣市別' => [
+                'es_field' => 'electionArea.keyword',
+                'type' => 'text',
+            ],
+        ];
+    }
+
+    public static function getIdFieldsInfo()
+    {
+        return [
+            'id' => [
+                'path_name' => 'id',
+                'type' => 'string',
+                'example' => 'election-113071504-113303-area-66000-2420701859b9417188f82d19fa625968',
+            ],
+        ];
+    }
+
+    public static function getFieldMap()
+    {
+        return [
+            'path' => 'id',
+            'accountNumber' => '帳戶編號',
+            'name' => '擬參選人姓名',
+            'electionYear' => '選舉年度',
+            'electionName' => '選舉名稱',
+            'electionArea' => '縣市別',
+            'yearOrSerial' => '申報序號',
+        ];
+    }
+
+    public static function aggMap()
+    {
+        return [
+            '帳戶編號' => ['account', ['帳戶編號']],
+            '擬參選人姓名' => ['account', ['擬參選人姓名']],
+            '選舉年度' => ['account', ['選舉年度']],
+            '選舉名稱' => ['account', ['選舉名稱']],
+            '縣市別' => ['account', ['縣市別']],
+            '申報序號' => ['account', ['申報序號']],
+        ];
+    }
+
+    public static function queryFields()
+    {
+        return [
+            '',
+        ];
+    }
+
+
+    public static function sortFields()
+    {
+        return [
+            '選舉年度',
+        ];
+    }
+
+    public static function getRelations()
+    {
+        return [];
+    }
+}
