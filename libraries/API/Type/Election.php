@@ -12,22 +12,20 @@ class API_Type_Election extends API_Type
         return [
             '選舉年度' => [
                 'es_field' => 'electionYear',
-                'description' => '選舉的民國年度 [例: 113]',
+                'description' => '紀年標準為民國年',
                 'type' => 'integer',
             ],
             '選舉名稱' => [
                 'es_field' => 'electionName.keyword',
-                'description' => '選舉的名稱 [例: 113年總統、副總統選舉]',
                 'type' => 'text',
             ],
             '申報序號' => [
                 'es_field' => 'yearOrSerial',
-                'description' => '申報序號 [例: 1]',
+                'description' => '首次為 1, 第一次賸餘為 2，接下來之後第 n 次為 n+1',
                 'type' => 'integer',
             ],
             '縣市別' => [
                 'es_field' => 'electionArea.keyword',
-                'description' => '選舉的縣市別 [例: 臺中市]',
                 'type' => 'text',
             ],
         ];
@@ -48,17 +46,20 @@ class API_Type_Election extends API_Type
     {
         return [
             'path' => 'id',
-            'yearOrSerial' => '申報序號',
             'electionYear' => '選舉年度',
-            'electionArea' => '縣市別',
             'electionName' => '選舉名稱',
+            'electionArea' => '縣市別',
+            'yearOrSerial' => '申報序號',
         ];
     }
 
     public static function aggMap()
     {
         return [
-            '選舉年度' => ['election', ['選舉年度']]
+            '選舉年度' => ['election', ['選舉年度']],
+            '選舉名稱' => ['election', ['選舉名稱']],
+            '縣市別' => ['election', ['縣市別']],
+            '申報序號' => ['election', ['申報序號']],
         ];
     }
 
