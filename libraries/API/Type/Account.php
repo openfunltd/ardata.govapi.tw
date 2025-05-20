@@ -14,7 +14,7 @@ class API_Type_Account extends API_Type
                 'es_field' => 'name.keyword',
                 'type' => 'text',
             ],
-            '帳戶編號' => [
+            '帳號' => [
                 'es_field' => 'accountNumber.keyword',
                 'description' => '由於申報次數可以超過一次以上，所以此欄位並非唯一值（unique）',
                 'type' => 'text',
@@ -46,7 +46,7 @@ class API_Type_Account extends API_Type
             'id' => [
                 'path_name' => 'id',
                 'type' => 'string',
-                'example' => 'election-113071504-113303-area-66000-2420701859b9417188f82d19fa625968',
+                'example' => 'account-114041003-1141800035-5a69ce6f3011412bb343a27861d00ed1',
             ],
         ];
     }
@@ -55,7 +55,7 @@ class API_Type_Account extends API_Type
     {
         return [
             'path' => 'id',
-            'accountNumber' => '帳戶編號',
+            'accountNumber' => '帳號',
             'name' => '擬參選人姓名',
             'electionYear' => '選舉年度',
             'electionName' => '選舉名稱',
@@ -67,7 +67,7 @@ class API_Type_Account extends API_Type
     public static function aggMap()
     {
         return [
-            '帳戶編號' => ['account', ['帳戶編號']],
+            '帳號' => ['account', ['帳號']],
             '擬參選人姓名' => ['account', ['擬參選人姓名']],
             '選舉年度' => ['account', ['選舉年度']],
             '選舉名稱' => ['account', ['選舉名稱']],
@@ -79,7 +79,7 @@ class API_Type_Account extends API_Type
     public static function queryFields()
     {
         return [
-            '帳戶編號',
+            '帳號',
             '擬參選人姓名',
             '選舉年度',
             '選舉名稱',
@@ -91,7 +91,7 @@ class API_Type_Account extends API_Type
     {
         return [
             'id',
-            '帳戶編號',
+            '帳號',
             '擬參選人姓名',
             '選舉年度',
             '選舉名稱',
