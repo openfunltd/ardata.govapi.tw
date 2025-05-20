@@ -6,7 +6,7 @@ MiniEngine::dispatch(function($uri){
         return ['index', 'robots'];
     }
 
-    if ($uri == '/swagger') {
+    if ($uri == '/swagger' or $uri == '/') {
         return ['swagger', 'ui'];
     }
 
