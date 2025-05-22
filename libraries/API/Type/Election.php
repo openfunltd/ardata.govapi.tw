@@ -19,14 +19,14 @@ class API_Type_Election extends API_Type
                 'es_field' => 'electionName.keyword',
                 'type' => 'text',
             ],
+            '縣市別' => [
+                'es_field' => 'electionArea.keyword',
+                'type' => 'text',
+            ],
             '申報序號' => [
                 'es_field' => 'yearOrSerial',
                 'description' => '首次為 1, 第一次賸餘為 2，接下來之後第 n 次為 n+1',
                 'type' => 'integer',
-            ],
-            '縣市別' => [
-                'es_field' => 'electionArea.keyword',
-                'type' => 'text',
             ],
         ];
     }
@@ -66,7 +66,6 @@ class API_Type_Election extends API_Type
     public static function queryFields()
     {
         return [
-            '選舉年度',
             '選舉名稱',
             '縣市別',
         ];
