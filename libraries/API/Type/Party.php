@@ -70,7 +70,6 @@ class API_Type_Party extends API_Type
             '名稱',
             '政黨編號',
             '帳號',
-            '申報年度',
         ];
     }
 
